@@ -1,11 +1,11 @@
 package hu.bridgesoft.xa.sample.service;
 
-import java.math.BigDecimal;
-
 import hu.bridgesoft.xa.sample.domain.customer.CapitalAccount;
 import hu.bridgesoft.xa.sample.domain.customer.Customer;
 import hu.bridgesoft.xa.sample.domain.order.Order;
+import hu.bridgesoft.xa.sample.domain.order.RedPacketAccount;
 import hu.bridgesoft.xa.sample.exception.NoRollbackException;
+import hu.bridgesoft.xa.sample.exception.StoreException;
 import hu.bridgesoft.xa.sample.repository.customer.CapitalAccountRepository;
 import hu.bridgesoft.xa.sample.repository.customer.CustomerRepository;
 import hu.bridgesoft.xa.sample.repository.order.OrderRepository;
@@ -14,8 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import hu.bridgesoft.xa.sample.domain.order.RedPacketAccount;
-import hu.bridgesoft.xa.sample.exception.StoreException;
+import java.math.BigDecimal;
 
 @Service
 public class StoreServiceImpl implements StoreService {
@@ -57,10 +56,10 @@ public class StoreServiceImpl implements StoreService {
 
 	@Transactional()
 	public void transfer() {
-		CapitalAccount ca1 = capitalAccountRepository.findOne(1l);
-		CapitalAccount ca2 = capitalAccountRepository.findOne(2l);
-		RedPacketAccount rp1 = redPacketAccountRepository.findOne(1l);
-		RedPacketAccount rp2 = redPacketAccountRepository.findOne(2l);
+		CapitalAccount ca1 = capitalAccountRepository.findById(1l).get();
+		CapitalAccount ca2 = capitalAccountRepository.findById(2l).get();
+		RedPacketAccount rp1 = redPacketAccountRepository.findById(1l).get();
+		RedPacketAccount rp2 = redPacketAccountRepository.findById(2l).get();
 		BigDecimal capital = BigDecimal.TEN;
 		BigDecimal red = BigDecimal.TEN;
 		ca1.transferFrom(capital);
@@ -79,10 +78,10 @@ public class StoreServiceImpl implements StoreService {
 	
 	@Transactional(rollbackFor = StoreException.class)
 	public void transferWithStoreException() throws StoreException {
-		CapitalAccount ca1 = capitalAccountRepository.findOne(1l);
-		CapitalAccount ca2 = capitalAccountRepository.findOne(2l);
-		RedPacketAccount rp1 = redPacketAccountRepository.findOne(1l);
-		RedPacketAccount rp2 = redPacketAccountRepository.findOne(2l);
+		CapitalAccount ca1 = capitalAccountRepository.findById(1l).get();
+		CapitalAccount ca2 = capitalAccountRepository.findById(2l).get();
+		RedPacketAccount rp1 = redPacketAccountRepository.findById(1l).get();
+		RedPacketAccount rp2 = redPacketAccountRepository.findById(2l).get();
 		
 		BigDecimal capital = BigDecimal.TEN;
 		BigDecimal red = BigDecimal.TEN;
@@ -109,10 +108,10 @@ public class StoreServiceImpl implements StoreService {
 	
 	@Transactional(noRollbackFor = NoRollbackException.class, rollbackFor = StoreException.class)
 	public void transferWithNoRollbackException() throws NoRollbackException {
-		CapitalAccount ca1 = capitalAccountRepository.findOne(1l);
-		CapitalAccount ca2 = capitalAccountRepository.findOne(2l);
-		RedPacketAccount rp1 = redPacketAccountRepository.findOne(1l);
-		RedPacketAccount rp2 = redPacketAccountRepository.findOne(2l);
+		CapitalAccount ca1 = capitalAccountRepository.findById(1l).get();
+		CapitalAccount ca2 = capitalAccountRepository.findById(2l).get();
+		RedPacketAccount rp1 = redPacketAccountRepository.findById(1l).get();
+		RedPacketAccount rp2 = redPacketAccountRepository.findById(2l).get();
 		
 		BigDecimal capital = BigDecimal.TEN;
 		BigDecimal red = BigDecimal.TEN;

@@ -1,9 +1,11 @@
 package hu.bridgesoft.xa.sample;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 
 import javax.sql.DataSource;
 
+import com.mysql.cj.jdbc.MysqlXADataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +17,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import com.atomikos.jdbc.AtomikosDataSourceBean;
 import hu.bridgesoft.xa.sample.repository.order.OrderDatasourceProperties;
-import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 
 @Configuration
 @DependsOn("transactionManager")
@@ -30,7 +31,7 @@ public class OrderConfig {
 	private OrderDatasourceProperties orderDatasourceProperties;
 
 	@Bean(name = "orderDataSource", initMethod = "init", destroyMethod = "close")
-	public DataSource orderDataSource() {
+	public DataSource orderDataSource() throws SQLException {
 		 MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
 		 mysqlXaDataSource.setUrl(orderDatasourceProperties.getUrl());
 		 mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
