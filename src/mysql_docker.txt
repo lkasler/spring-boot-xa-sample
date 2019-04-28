@@ -1,0 +1,13 @@
+docker run -d -p 13306:3306 --name my-mysql -v ${PWD}/docs:/docker-entrypoint-initdb.d/ -e MYSQL_ROOT_PASSWORD=supersecret mysql 
+
+docker exec -it my-mysql bash
+mysql -u root -proot
+
+
+
+CREATE DATABASE databaseName;
+CREATE USER 'dnguyen'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON databaseName.* TO 'dnguyen'@'localhost';
+FLUSH PRIVILEGES;
+QUIT
+

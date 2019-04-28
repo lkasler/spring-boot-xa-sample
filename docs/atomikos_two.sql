@@ -12,6 +12,7 @@ File Encoding         : 65001
 
 Date: 2016-08-16 17:18:45
 */
+use atomikos_two;
 
 SET FOREIGN_KEY_CHECKS=0;
 

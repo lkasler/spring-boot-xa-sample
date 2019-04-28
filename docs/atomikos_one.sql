@@ -13,7 +13,10 @@ File Encoding         : 65001
 Date: 2016-08-16 17:18:37
 */
 
+use atomikos_one;
+
 SET FOREIGN_KEY_CHECKS=0;
+
 
 -- ----------------------------
 -- Table structure for capital_account

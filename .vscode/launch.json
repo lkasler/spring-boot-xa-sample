@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "com.iyihua.sample.App",
+            "projectName": "spring-boot-jta-atomikos-sample"
+        }
+    ]
+}
