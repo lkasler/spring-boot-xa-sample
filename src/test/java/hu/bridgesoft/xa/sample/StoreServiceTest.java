@@ -5,7 +5,6 @@ import hu.bridgesoft.xa.sample.domain.order.Order;
 import hu.bridgesoft.xa.sample.repository.customer.CustomerRepository;
 import hu.bridgesoft.xa.sample.repository.order.OrderRepository;
 import hu.bridgesoft.xa.sample.service.StoreService;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
+
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MainConfig.class)
@@ -45,11 +47,11 @@ public class StoreServiceTest {
 
 		storeService.store(c, o);
 
-		Assert.assertNotNull(c.getId());
-		Assert.assertNotNull(o.getId());
+		assertNotNull(c.getId());
+		assertNotNull(o.getId());
 
-		Assert.assertTrue(1 <= customerRepository.findAll().size());
-		Assert.assertTrue(1 <= orderRepository.findAll().size());
+		assertTrue(1 <= customerRepository.findAll().size());
+		assertTrue(1 <= orderRepository.findAll().size());
 	}
 
 
