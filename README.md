@@ -47,8 +47,8 @@ jdbc:mysql://localhost:13306/atomikos_two
 
 ## How to run?
 1. git clone https://github.com/YihuaWanglv/spring-boot-jta-atomikos-sample.git
-2. To import db script (docs folder) from the source folder run: ```docker run -d -p 13306:3306 --name xa-mysql -v ${PWD}/docs:/docker-entrypoint-initdb.d/ -e MYSQL_ROOT_PASSWORD=supersecret mysql:5.5```
-3. import project into ide and run App.java or build project and run the jar
+2. To run mysql and import the db scripts (docs folder) run docker from the root folder which will initialize the databases: ```docker run -d -p 13306:3306 --name xa-mysql -v ${PWD}/docs:/docker-entrypoint-initdb.d/ -e MYSQL_ROOT_PASSWORD=supersecret mysql:5.5```
+3. import project into ide and run XaApp.java or build project and run the jar
 4. visit utl:http://localhost:9080/save to see saveTest
 
 ## Reference
