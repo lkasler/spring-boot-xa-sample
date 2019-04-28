@@ -1,12 +1,11 @@
 CREATE DATABASE atomikos_one;
-CREATE USER 'atomikos_one'@'localhost' IDENTIFIED BY 'atomikos_one';
-GRANT ALL PRIVILEGES ON databaseName.* TO 'atomikos_one'@'localhost';
+CREATE USER 'atomikos_one'@'%' IDENTIFIED BY 'atomikos_one';
+GRANT ALL PRIVILEGES ON atomikos_one.* TO 'atomikos_one';
 FLUSH PRIVILEGES;
 
-
 CREATE DATABASE atomikos_two;
-CREATE USER 'atomikos_two'@'localhost' IDENTIFIED BY 'atomikos_two';
-GRANT ALL PRIVILEGES ON databaseName.* TO 'atomikos_two'@'localhost';
+CREATE USER 'atomikos_two'@'%' IDENTIFIED BY 'atomikos_two';
+GRANT ALL PRIVILEGES ON atomikos_two.* TO 'atomikos_two';
 FLUSH PRIVILEGES;
 
 QUIT

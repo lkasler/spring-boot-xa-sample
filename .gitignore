@@ -20,6 +20,6 @@ target/**
 *.attach*
 *.log
 *.epoch
-
+*.lck
 
 
