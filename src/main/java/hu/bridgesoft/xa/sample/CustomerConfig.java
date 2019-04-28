@@ -20,7 +20,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 
 @Configuration
 @DependsOn("transactionManager")
-@EnableJpaRepositories(basePackages = "com.iyihua.sample.repository.customer", entityManagerFactoryRef = "customerEntityManager", transactionManagerRef = "transactionManager")
+@EnableJpaRepositories(basePackages = "hu.bridgesoft.xa.sample.repository.customer", entityManagerFactoryRef = "customerEntityManager", transactionManagerRef = "transactionManager")
 @EnableConfigurationProperties(CustomerDatasourceProperties.class)
 public class CustomerConfig {
 
@@ -60,7 +60,7 @@ public class CustomerConfig {
 		LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
 		entityManager.setJtaDataSource(customerDataSource());
 		entityManager.setJpaVendorAdapter(jpaVendorAdapter);
-		entityManager.setPackagesToScan("com.iyihua.sample.domain.customer");
+		entityManager.setPackagesToScan("hu.bridgesoft.xa.sample.domain.customer");
 		entityManager.setPersistenceUnitName("customerPersistenceUnit");
 		entityManager.setJpaPropertyMap(properties);
 		return entityManager;

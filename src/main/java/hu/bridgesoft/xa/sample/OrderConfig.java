@@ -19,7 +19,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 
 @Configuration
 @DependsOn("transactionManager")
-@EnableJpaRepositories(basePackages = "com.iyihua.sample.repository.order", entityManagerFactoryRef = "orderEntityManager", transactionManagerRef = "transactionManager")
+@EnableJpaRepositories(basePackages = "hu.bridgesoft.xa.sample.repository.order", entityManagerFactoryRef = "orderEntityManager", transactionManagerRef = "transactionManager")
 @EnableConfigurationProperties(OrderDatasourceProperties.class)
 public class OrderConfig {
 
@@ -54,7 +54,7 @@ public class OrderConfig {
 		LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
 		entityManager.setJtaDataSource(orderDataSource());
 		entityManager.setJpaVendorAdapter(jpaVendorAdapter);
-		entityManager.setPackagesToScan("com.iyihua.sample.domain.order");
+		entityManager.setPackagesToScan("hu.bridgesoft.xa.sample.domain.order");
 		entityManager.setPersistenceUnitName("orderPersistenceUnit");
 		entityManager.setJpaPropertyMap(properties);
 		return entityManager;

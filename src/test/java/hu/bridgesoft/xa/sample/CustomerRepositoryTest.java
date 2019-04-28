@@ -1,7 +1,7 @@
-package com.at.mul;
+package hu.bridgesoft.xa.sample;
 
-import javax.transaction.Transactional;
-
+import hu.bridgesoft.xa.sample.domain.customer.Customer;
+import hu.bridgesoft.xa.sample.repository.customer.CustomerRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,9 +10,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import hu.bridgesoft.xa.sample.MainConfig;
-import hu.bridgesoft.xa.sample.domain.customer.Customer;
-import hu.bridgesoft.xa.sample.repository.customer.CustomerRepository;
+import javax.transaction.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MainConfig.class)

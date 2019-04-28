@@ -8,7 +8,7 @@
 		<version>1.3.5.RELEASE</version>
 	</parent>
 
-	<groupId>com.iyihua.sample</groupId>
+	<groupId>hu.bridgesoft.xa.sample</groupId>
 	<artifactId>spring-boot-jta-atomikos-sample</artifactId>
 	<version>1.0.0.SNAPSHOT</version>
 	<packaging>jar</packaging>
