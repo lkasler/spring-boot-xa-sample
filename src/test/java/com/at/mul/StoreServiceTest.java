@@ -10,14 +10,14 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.iyihua.sample.MainConfig;
-import com.iyihua.sample.domain.customer.Customer;
-import com.iyihua.sample.domain.order.Order;
-import com.iyihua.sample.exception.NoRollbackException;
-import com.iyihua.sample.exception.StoreException;
-import com.iyihua.sample.repository.customer.CustomerRepository;
-import com.iyihua.sample.repository.order.OrderRepository;
-import com.iyihua.sample.service.StoreService;
+import hu.bridgesoft.xa.sample.MainConfig;
+import hu.bridgesoft.xa.sample.domain.customer.Customer;
+import hu.bridgesoft.xa.sample.domain.order.Order;
+import hu.bridgesoft.xa.sample.exception.NoRollbackException;
+import hu.bridgesoft.xa.sample.exception.StoreException;
+import hu.bridgesoft.xa.sample.repository.customer.CustomerRepository;
+import hu.bridgesoft.xa.sample.repository.order.OrderRepository;
+import hu.bridgesoft.xa.sample.service.StoreService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MainConfig.class)

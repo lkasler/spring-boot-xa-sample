@@ -10,9 +10,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import com.iyihua.sample.MainConfig;
-import com.iyihua.sample.domain.customer.Customer;
-import com.iyihua.sample.repository.customer.CustomerRepository;
+import hu.bridgesoft.xa.sample.MainConfig;
+import hu.bridgesoft.xa.sample.domain.customer.Customer;
+import hu.bridgesoft.xa.sample.repository.customer.CustomerRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MainConfig.class)
