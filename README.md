@@ -37,6 +37,11 @@ QUIT
 
 ```
 
+Database access:
+jdbc:mysql://localhost:13306
+jdbc:mysql://localhost:13306/atomikos_one
+jdbc:mysql://localhost:13306/atomikos_two
+
 ## How to run?
 1. git clone https://github.com/YihuaWanglv/spring-boot-jta-atomikos-sample.git
 2. import db script in folder "docs"
