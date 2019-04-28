@@ -26,9 +26,10 @@ mysql -u root -proot
 
 
 
-CREATE DATABASE databaseName;
-CREATE USER 'dnguyen'@'localhost' IDENTIFIED BY '123456';
-GRANT ALL PRIVILEGES ON databaseName.* TO 'dnguyen'@'localhost';
+
+CREATE DATABASE exampleDatabase;
+CREATE USER 'example'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON databaseName.* TO 'example'@'%';
 FLUSH PRIVILEGES;
 QUIT
 
