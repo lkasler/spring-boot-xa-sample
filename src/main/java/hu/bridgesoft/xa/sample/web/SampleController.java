@@ -12,53 +12,53 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class SampleController  {
-	
-	@Autowired StoreService storeService;
+public class SampleController {
 
-	@GetMapping("/")
+    @Autowired
+    StoreService storeService;
+
+    @GetMapping("/")
     public String home() {
         return "Hello World!";
     }
 
 
-
-	@GetMapping("/store")
+    @GetMapping("/store")
     public Object store() {
-    	Map<String, Object> result = new HashMap<String, Object>();
-    	try {
-    		Customer c = new Customer();
-    		c.setName("test");
-    		c.setAge(30);
-    		Order o = new Order();
-    		o.setCode(1);
-    		o.setQuantity(7);
-    		storeService.store(c, o);
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Customer c = new Customer();
+            c.setName("test");
+            c.setAge(30);
+            Order o = new Order();
+            o.setCode(1);
+            o.setQuantity(7);
+            storeService.store(c, o);
 
-    		Assert.notNull(c.getId());
-    		Assert.notNull(o.getId());
-    		result.put("status", "0");
-		} catch (Exception e) {
-			e.printStackTrace();
-			result.put("status", "1");
-			result.put("msg", e.getMessage());
-		}
-    	return result;
+            Assert.notNull(c.getId());
+            Assert.notNull(o.getId());
+            result.put("status", "0");
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status", "1");
+            result.put("msg", e.getMessage());
+        }
+        return result;
     }
 
-	@GetMapping("/save")
+    @GetMapping("/save")
     public Object save() {
-    	Map<String, Object> result = new HashMap<String, Object>();
-    	try {
-    		
-    		storeService.transfer();
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+
+            storeService.transfer();
 //    		storeService.transferWithStoreException();
-    		result.put("status", "0");
-		} catch (Exception e) {
-			e.printStackTrace();
-			result.put("status", "1");
-			result.put("msg", e.getMessage());
-		}
-    	return result;
+            result.put("status", "0");
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status", "1");
+            result.put("msg", e.getMessage());
+        }
+        return result;
     }
 }
