@@ -37,7 +37,7 @@ public class JmsConfig {
     }
 
     @Bean
-    private ActiveMQXAConnectionFactory activeMQXAConnectionFactory() {
+    public ActiveMQXAConnectionFactory activeMQXAConnectionFactory() {
         ActiveMQXAConnectionFactory activeMQXAConnectionFactory = new ActiveMQXAConnectionFactory();
         activeMQXAConnectionFactory.setBrokerURL(String.format(ARTEMIS_URL, artemisProperties.getHost(), artemisProperties.getPort()));
         activeMQXAConnectionFactory.setUserName(artemisProperties.getUser());

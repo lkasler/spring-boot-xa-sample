@@ -1,33 +1,30 @@
 package hu.bridgesoft.xa.sample.web;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import hu.bridgesoft.xa.sample.domain.customer.Customer;
 import hu.bridgesoft.xa.sample.domain.order.Order;
 import hu.bridgesoft.xa.sample.service.StoreService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
 public class SampleController  {
 	
 	@Autowired StoreService storeService;
-	
-    @ResponseBody
-    @RequestMapping(value = "/index")
-    String home() {   
+
+	@GetMapping("/")
+    public String home() {
         return "Hello World!";
     }
-    
-    
-    
-    @ResponseBody
-    @RequestMapping(value = "/store")
-    Object store() {
+
+
+
+	@GetMapping("/store")
+    public Object store() {
     	Map<String, Object> result = new HashMap<String, Object>();
     	try {
     		Customer c = new Customer();
@@ -49,9 +46,8 @@ public class SampleController  {
     	return result;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/save")
-    Object save() {
+	@GetMapping("/save")
+    public Object save() {
     	Map<String, Object> result = new HashMap<String, Object>();
     	try {
     		

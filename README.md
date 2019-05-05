@@ -167,7 +167,8 @@ To shut down:
 ```docker-compose down```
 
 3. import project into ide and run XaApp.java or build project and run the jar
-4. visit utl:http://localhost:9080/save to see saveTest
+4. visit url:
+http://localhost:9080/save to see saveTest
 
 ## Reference
 - http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/
