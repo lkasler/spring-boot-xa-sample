@@ -155,6 +155,17 @@ The home of ActiveMQ is in /opt/activemq, so if you want to override all the set
 1. git clone https://github.com/YihuaWanglv/spring-boot-jta-atomikos-sample.git
 2. To run mysql and import the db scripts (docs folder) run docker from the root folder which will initialize the databases: ```docker run -d -p 13306:3306 --name xa-mysql -v ${PWD}/docs:/docker-entrypoint-initdb.d/ -e MYSQL_ROOT_PASSWORD=supersecret mysql:5.5```
 To remove to container use the docker command: ```docker rm -f xa-mysql```
+To run activemq:
+```docker run --name='xa-activemq' -d  -e 'ACTIVEMQ_STATIC_QUEUES=queue1;queue2;queue3' -p 8161:8161  -p 61616:61616 -p 61613:61613  webcenter/activemq:5.14.3 ```
+To remove activemq
+```docker rm -f xa-activemq```
+
+Or simply use docker-compose
+``` docker-compose up -d```
+
+To shut down:
+```docker-compose down```
+
 3. import project into ide and run XaApp.java or build project and run the jar
 4. visit utl:http://localhost:9080/save to see saveTest
 

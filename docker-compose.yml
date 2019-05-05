@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  mysql:
+    image: mysql:5.5
+    container_name: xa-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=supersecret
+    ports:
+      - 13306:3306
+    volumes:
+      - ${PWD}/docs:/docker-entrypoint-initdb.d/
+
+  activemq:
+    image: webcenter/activemq:5.14.3
+    container_name: xa-activemq
+    environment:
+      - ACTIVEMQ_STATIC_QUEUES=queue1;queue2;queue3
+    ports:
+      - 8161:8161
+      - 61616:61616
+      - 61613:61613
+
