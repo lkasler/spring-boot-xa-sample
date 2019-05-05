@@ -9,19 +9,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = MainConfig.class)
 @Transactional
-@Commit
 public class StoreServiceTest {
 
 	@Autowired
@@ -52,8 +48,6 @@ public class StoreServiceTest {
 		assertNotNull(c.getId());
 		assertNotNull(o.getId());
 
-		assertTrue(1 <= customerRepository.findAll().size());
-		assertTrue(1 <= orderRepository.findAll().size());
 	}
 
 
