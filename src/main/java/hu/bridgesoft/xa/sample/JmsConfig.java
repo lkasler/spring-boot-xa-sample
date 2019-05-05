@@ -21,6 +21,9 @@ import javax.jms.Session;
 @EnableConfigurationProperties(ArtemisProperties.class)
 public class JmsConfig {
 
+    private static final String ARTEMIS_URL = "tcp://%s:%s";
+
+
     @Autowired
     private ArtemisProperties artemisProperties;
 
@@ -28,13 +31,18 @@ public class JmsConfig {
     public AtomikosConnectionFactoryBean atomikosConnectionFactoryBean(){
         AtomikosConnectionFactoryBean atomikosConnectionFactoryBean = new AtomikosConnectionFactoryBean();
         atomikosConnectionFactoryBean.setUniqueResourceName("ActiveMQXA");
-        ActiveMQXAConnectionFactory activeMQXAConnectionFactory = new ActiveMQXAConnectionFactory();
-        activeMQXAConnectionFactory.setBrokerURL("tcp://localhost:61616");
-        activeMQXAConnectionFactory.setUserName("admin");
-        activeMQXAConnectionFactory.setPassword("admin");
-        atomikosConnectionFactoryBean.setXaConnectionFactory(activeMQXAConnectionFactory);
+        atomikosConnectionFactoryBean.setXaConnectionFactory(activeMQXAConnectionFactory());
         atomikosConnectionFactoryBean.setPoolSize(1);
         return atomikosConnectionFactoryBean;
+    }
+
+    @Bean
+    private ActiveMQXAConnectionFactory activeMQXAConnectionFactory() {
+        ActiveMQXAConnectionFactory activeMQXAConnectionFactory = new ActiveMQXAConnectionFactory();
+        activeMQXAConnectionFactory.setBrokerURL(String.format(ARTEMIS_URL, artemisProperties.getHost(), artemisProperties.getPort()));
+        activeMQXAConnectionFactory.setUserName(artemisProperties.getUser());
+        activeMQXAConnectionFactory.setPassword(artemisProperties.getPassword());
+        return activeMQXAConnectionFactory;
     }
 
     @Bean
