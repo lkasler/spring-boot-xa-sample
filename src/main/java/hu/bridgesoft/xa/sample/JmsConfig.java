@@ -1,6 +1,9 @@
 package hu.bridgesoft.xa.sample;
 
 import org.apache.activemq.ActiveMQXAConnectionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jms.artemis.ArtemisProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jta.atomikos.AtomikosConnectionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +18,11 @@ import javax.jms.Session;
  */
 @Configuration
 @DependsOn("transactionManager")
+@EnableConfigurationProperties(ArtemisProperties.class)
 public class JmsConfig {
+
+    @Autowired
+    private ArtemisProperties artemisProperties;
 
     @Bean(name = "atomikosJmsConnectionFactor", initMethod = "init")
     public AtomikosConnectionFactoryBean atomikosConnectionFactoryBean(){
