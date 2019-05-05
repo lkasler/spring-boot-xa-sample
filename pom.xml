@@ -70,6 +70,12 @@
 
 		<dependency>
 			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jms</artifactId>
+			<version>${atomikos.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.atomikos</groupId>
 			<artifactId>transactions-hibernate3</artifactId>
 			<version>${atomikos.version}</version>
 			<exclusions>
