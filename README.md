@@ -166,9 +166,10 @@ Or simply use docker-compose
 To shut down:
 ```docker-compose down```
 
-3. import project into ide and run XaApp.java or build project and run the jar
-4. visit url:
+3. Import project into ide and run XaApp.java or build project and run the jar
+4. Visit url:
 http://localhost:9080/save to see a successfull test
+5. Visit url:
 http://localhost:9080/saveRuntimeException to see a failure test, last command throwing a RuntimeException, all transaction steps rolled back.
 
 ## Reference
