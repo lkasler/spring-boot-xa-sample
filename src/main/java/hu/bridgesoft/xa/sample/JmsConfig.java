@@ -8,6 +8,7 @@ import org.springframework.boot.jta.atomikos.AtomikosConnectionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
 
 import javax.jms.Session;
@@ -22,6 +23,7 @@ import javax.jms.Session;
 public class JmsConfig {
 
     private static final String ARTEMIS_URL = "tcp://%s:%s";
+    public static final String QUEUE_1 = "queue1";
 
 
     @Autowired
@@ -53,5 +55,13 @@ public class JmsConfig {
         jmsTemplate.setSessionTransacted(true);
         jmsTemplate.setSessionAcknowledgeMode(Session.SESSION_TRANSACTED);
         return jmsTemplate;
+    }
+
+    @Bean
+    public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
+        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        factory.setConnectionFactory(activeMQXAConnectionFactory());
+        factory.setConcurrency("1-1");
+        return factory;
     }
 }

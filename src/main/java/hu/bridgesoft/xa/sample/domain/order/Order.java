@@ -9,11 +9,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "orders")
-//@Data
-//@EqualsAndHashCode(exclude = { "id" })
+@ToString
 public class Order {
 
 	@Id

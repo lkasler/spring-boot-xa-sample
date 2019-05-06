@@ -16,5 +16,6 @@ public interface StoreService {
 	void transferWithStoreException() throws StoreException;
 	void transferWithNoRollbackException() throws NoRollbackException;
 	void transfer();
+	void transferWithRuntimeException();
 
 }

@@ -1,5 +1,7 @@
 package hu.bridgesoft.xa.sample.domain.order;
 
+import lombok.ToString;
+
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "red_packet_account")
+@ToString
 public class RedPacketAccount {
 
 	@Id 

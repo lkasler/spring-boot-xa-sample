@@ -61,4 +61,18 @@ public class SampleController {
         }
         return result;
     }
+
+    @GetMapping("/saveRuntimeException")
+    public Object saveRuntimeException() {
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            storeService.transferWithRuntimeException();
+            result.put("status", "0");
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status", "1");
+            result.put("msg", e.getMessage());
+        }
+        return result;
+    }
 }

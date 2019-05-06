@@ -168,7 +168,8 @@ To shut down:
 
 3. import project into ide and run XaApp.java or build project and run the jar
 4. visit url:
-http://localhost:9080/save to see saveTest
+http://localhost:9080/save to see a successfull test
+http://localhost:9080/saveRuntimeException to see a failure test, last command throwing a RuntimeException, all transaction steps rolled back.
 
 ## Reference
 - http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/
